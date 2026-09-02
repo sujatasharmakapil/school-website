@@ -1,0 +1,112 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FlaskConical, Calculator, Cpu, Palette, Dumbbell, BookOpen, ArrowUpRight, X, Award } from "lucide-react";
+
+const faculty = [
+  { name: "Dr. Priya Sharma",  role: "Principal",          dept: "Educational Leadership", exp: "25 yrs", icon: BookOpen,     accent: "#6366f1", qual: "PhD · Harvard GSE",               bio: "Under Dr. Sharma's leadership, Bright Horizons achieved ISO certification and cracked the top 1% of CBSE schools nationwide.", awards: ["National Principal of the Year 2022", "Harvard Alumni Excellence Award"] },
+  { name: "Mr. Arjun Mehta",   role: "Head of Sciences",   dept: "Physics & Chemistry",    exp: "18 yrs", icon: FlaskConical, accent: "#22c55e", qual: "IIT Bombay · Gold Medalist",         bio: "Students consistently rank in the top 0.1% of board results. He has coached 3 National Science Olympiad winners.", awards: ["IIT Gold Medal", "National Science Educator 2020"] },
+  { name: "Ms. Kavya Nair",    role: "Head of Mathematics",dept: "Advanced Mathematics",   exp: "15 yrs", icon: Calculator,   accent: "#f97316", qual: "IISc · International Math Olympiad Coach", bio: "Her students have won at the International Olympiad level for 6 consecutive years.", awards: ["IMO Coach Award", "CBSE Math Excellence 2023"] },
+  { name: "Mr. Rahul Das",     role: "Head of Technology", dept: "Computer Science & AI",  exp: "12 yrs", icon: Cpu,          accent: "#38bdf8", qual: "Ex-Google Engineer · IIT Delhi",    bio: "Rahul left Silicon Valley to bring real-world tech education to schools. He built our AI Lab and has mentored 15+ student startups.", awards: ["Google Alumni Impact Award", "EdTech Innovator 2024"] },
+  { name: "Ms. Ananya Patel",  role: "Head of Arts",       dept: "Visual Arts & Drama",    exp: "14 yrs", icon: Palette,      accent: "#e879f9", qual: "National Award Recipient · LKA",    bio: "A nationally recognised artist. Alumni are studying at NIFT, NID, and abroad.", awards: ["Lalit Kala Akademi Award", "Best Arts Educator"] },
+  { name: "Mr. Vikram Singh",  role: "Head of Sports",     dept: "Athletics & PE",         exp: "20 yrs", icon: Dumbbell,     accent: "#fbbf24", qual: "Former National Athlete · SAI",      bio: "Coach Vikram represented India at the Commonwealth Games. His program has produced 3 national-level athletes.", awards: ["Arjuna Award Nominee", "Best Sports Educator 2021"] },
+];
+
+export default function Faculty() {
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [selected, setSelected] = useState<typeof faculty[0] | null>(null);
+
+  return (
+    <section id="faculty" style={{ background: "var(--bg-2)" }}>
+      <div style={{ borderBottom: "1px solid var(--border)" }}>
+        <div className="max-w-7xl mx-auto px-5 lg:px-10 py-5 flex items-center justify-between">
+          <div className="flex items-center gap-3"><div className="h-px w-8 bg-electric" /><span className="mono-tag">The Team</span></div>
+          <span className="mono-tag">120+ Educators</span>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-5 lg:px-10 py-20" ref={ref}>
+        <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} className="mb-14 max-w-xl">
+          <h2 className="font-display font-bold text-[clamp(1.9rem,4.5vw,3.2rem)] leading-[1.1] mb-4" style={{ color: "var(--fg)" }}>
+            World-Class Minds. <span className="text-electric-2">Inspiring Teachers.</span>
+          </h2>
+          <p className="leading-relaxed" style={{ color: "var(--fg-2)" }}>Every faculty member is a leader in their field. Click any card to know more.</p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {faculty.map((f, i) => (
+            <motion.button
+              key={f.name}
+              initial={{ opacity: 0, y: 24 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: i * 0.08 }}
+              onClick={() => setSelected(f)}
+              className="group text-left relative overflow-hidden rounded-2xl p-6 transition-all duration-300"
+              style={{ background: "var(--bg)", border: "1px solid var(--border)" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = f.accent + "50"; (e.currentTarget as HTMLElement).style.transform = "translateY(-5px)"; (e.currentTarget as HTMLElement).style.boxShadow = `0 12px 32px ${f.accent}14`; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = "var(--border)"; (e.currentTarget as HTMLElement).style.transform = "none"; (e.currentTarget as HTMLElement).style.boxShadow = "none"; }}
+            >
+              <div className="accent-line" style={{ background: f.accent }} />
+              <div className="flex items-start justify-between mb-5">
+                <div className="w-12 h-12 rounded-2xl flex items-center justify-center" style={{ background: f.accent + "18" }}>
+                  <f.icon className="w-6 h-6" style={{ color: f.accent }} strokeWidth={1.5} />
+                </div>
+                <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-full" style={{ background: f.accent + "15", color: f.accent }}>{f.exp}</span>
+              </div>
+              <h3 className="font-display font-bold text-lg mb-1" style={{ color: "var(--fg)" }}>{f.name}</h3>
+              <p className="text-sm font-semibold mb-0.5" style={{ color: f.accent }}>{f.role}</p>
+              <p className="text-xs mb-3" style={{ color: "var(--fg-3)" }}>{f.dept}</p>
+              <p className="text-xs font-mono" style={{ color: "var(--fg-3)" }}>{f.qual}</p>
+              <div className="mt-5 flex items-center gap-1 text-xs font-medium transition-colors" style={{ color: "var(--fg-3)" }}>
+                View Profile <ArrowUpRight className="w-3 h-3" />
+              </div>
+            </motion.button>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selected && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => setSelected(null)}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(8px)" }}>
+            <motion.div initial={{ opacity: 0, scale: 0.9, y: 18 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.9 }}
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-lg rounded-3xl p-8 relative"
+              style={{ background: "var(--bg-2)", border: `1px solid ${selected.accent}30` }}>
+              <div className="absolute top-0 inset-x-0 h-[2px] rounded-t-3xl" style={{ background: selected.accent }} />
+              <button onClick={() => setSelected(null)} className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center transition-all"
+                style={{ background: "var(--bg-3)", color: "var(--fg-3)" }}>
+                <X className="w-4 h-4" />
+              </button>
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: selected.accent + "18" }}>
+                  <selected.icon className="w-7 h-7" style={{ color: selected.accent }} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <h3 className="font-display font-bold text-xl" style={{ color: "var(--fg)" }}>{selected.name}</h3>
+                  <p className="text-sm font-semibold" style={{ color: selected.accent }}>{selected.role} · {selected.dept}</p>
+                </div>
+              </div>
+              <p className="text-xs font-mono mb-4" style={{ color: "var(--fg-3)" }}>{selected.qual}</p>
+              <p className="leading-relaxed mb-5" style={{ color: "var(--fg-2)" }}>{selected.bio}</p>
+              <p className="mono-tag mb-3">Recognitions</p>
+              <div className="space-y-2">
+                {selected.awards.map((a) => (
+                  <div key={a} className="flex items-center gap-2.5">
+                    <Award className="w-4 h-4 flex-shrink-0" style={{ color: selected.accent }} />
+                    <span className="text-sm" style={{ color: "var(--fg-2)" }}>{a}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
