@@ -8,41 +8,50 @@ import Link from "next/link";
 
 const programs = [
   {
-    id: "primary", grade: "KG — Grade 5", title: "Primary", sub: "Nurturing Curious Minds",
+    id: "primary", grade: "KG — Grade 5", title: "Primary Classes", sub: "Small Kids, Big Learning",
     icon: Sprout, accent: "#22c55e",
-    desc: "A joyful, inquiry-driven foundation where learning is play. We build literacy, numeracy, and social skills through Montessori-inspired environments.",
+    desc: "For our youngest learners — KG to Grade 5. We teach reading, writing, maths and general knowledge in a fun and friendly way. Children feel happy and safe to ask questions.",
     modules: [
-      { icon: PenTool, label: "Phonics & Literacy" }, { icon: Calculator, label: "Maths Foundations" },
-      { icon: Palette, label: "Creative Arts" }, { icon: Dumbbell, label: "Physical Education" }, { icon: Music2, label: "Music & Movement" },
+      { icon: PenTool,    label: "Reading & Writing"    },
+      { icon: Calculator, label: "Maths Basics"         },
+      { icon: Palette,    label: "Drawing & Craft"      },
+      { icon: Dumbbell,   label: "Games & Exercise"     },
+      { icon: Music2,     label: "Songs & Activities"   },
     ],
   },
   {
-    id: "middle", grade: "Grade 6 — 8", title: "Middle", sub: "Exploring & Discovering",
+    id: "middle", grade: "Grade 6 — 8", title: "Middle Classes", sub: "Growing & Understanding",
     icon: Rocket, accent: "#6366f1",
-    desc: "An intellectually charged bridge where students explore STEM, humanities, and digital skills. Project-based learning ignites passion and analytical thinking.",
+    desc: "For Grade 6 to 8 students. We cover all CBSE subjects properly — Science, Maths, Social Science, Hindi and English. Computer classes are also included.",
     modules: [
-      { icon: FlaskConical, label: "Integrated STEM Labs" }, { icon: Globe2, label: "World Studies" },
-      { icon: Cpu, label: "Digital Literacy" }, { icon: PenTool, label: "Language & Writing" }, { icon: Dumbbell, label: "Sports & Leadership" },
+      { icon: FlaskConical, label: "Science Experiments" },
+      { icon: Calculator,   label: "Maths & Algebra"    },
+      { icon: Cpu,          label: "Computer Basics"    },
+      { icon: PenTool,      label: "Hindi & English"    },
+      { icon: Dumbbell,     label: "Sports & Games"     },
     ],
   },
   {
-    id: "senior", grade: "Grade 9 — 12", title: "Senior", sub: "Leading with Purpose",
+    id: "senior", grade: "Grade 9 — 12", title: "Senior Classes", sub: "Preparing for Life",
     icon: GraduationCap, accent: "#f97316",
-    desc: "Rigorous CBSE academics paired with university prep, entrepreneurship, and life skills — positioning every graduate for outstanding futures.",
+    desc: "For Grade 9 to 12 students. We prepare students for CBSE board exams and help them choose the right path — Science, Commerce or Arts — for their future.",
     modules: [
-      { icon: Calculator, label: "Advanced Sciences" }, { icon: Globe2, label: "Economics & Commerce" },
-      { icon: Cpu, label: "Computer Science / AI" }, { icon: PenTool, label: "English & Humanities" }, { icon: GraduationCap, label: "University Counseling" },
+      { icon: Calculator,   label: "Board Exam Prep"    },
+      { icon: Globe2,       label: "Commerce & Accounts"},
+      { icon: Cpu,          label: "Computer Science"   },
+      { icon: PenTool,      label: "English & Hindi"    },
+      { icon: GraduationCap,label: "Career Guidance"    },
     ],
   },
 ];
 
 const extras = [
-  { icon: Palette, label: "Visual Arts", color: "#e879f9" },
-  { icon: Music2, label: "Orchestra", color: "#a78bfa" },
-  { icon: Cpu, label: "Coding Club", color: "#38bdf8" },
-  { icon: Dumbbell, label: "Sports Academies", color: "#fb923c" },
-  { icon: FlaskConical, label: "Research Lab", color: "#4ade80" },
-  { icon: Globe2, label: "MUN & Debate", color: "#6366f1" },
+  { icon: Palette,      label: "Drawing & Art",    color: "#e879f9" },
+  { icon: Music2,       label: "Music & Dance",    color: "#a78bfa" },
+  { icon: Cpu,          label: "Computer Class",   color: "#38bdf8" },
+  { icon: Dumbbell,     label: "Sports & Games",   color: "#fb923c" },
+  { icon: FlaskConical, label: "Science Activity", color: "#4ade80" },
+  { icon: Globe2,       label: "GK & Quiz Club",   color: "#6366f1" },
 ];
 
 export default function Programs() {
@@ -62,7 +71,8 @@ export default function Programs() {
       <div className="max-w-7xl mx-auto px-5 lg:px-10 py-20" ref={ref}>
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} className="mb-14 max-w-2xl">
           <h2 className="font-display font-bold text-[clamp(1.9rem,4.5vw,3.2rem)] leading-[1.1]" style={{ color: "var(--fg)" }}>
-            Three Pathways, <span className="text-electric-2">One Destination</span> — Excellence.
+            Classes for Every Age,{" "}
+            <span className="text-electric-2">Taught the Right Way.</span>
           </h2>
         </motion.div>
 

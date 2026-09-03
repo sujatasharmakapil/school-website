@@ -5,10 +5,10 @@ import { Zap, ArrowUp } from "lucide-react";
 import Link from "next/link";
 
 const cols = {
-  School:     ["About Us", "Our Mission", "Leadership", "Accreditations", "Campus Tour"],
-  Academics:  ["Primary School", "Middle School", "Senior School", "Co-Curriculars", "Clubs & Sport"],
-  Admissions: ["How to Apply", "Fee Structure", "Scholarships", "FAQs", "Campus Visit"],
-  Connect:    ["Contact Us", "Alumni Network", "Parent Portal", "News & Events", "Careers"],
+  School:     ["About Our School", "Our Mission", "Our Teachers", "School Facilities", "Take a Tour"],
+  Academics:  ["Primary Classes", "Middle Classes", "Senior Classes", "Extra Activities", "Sports & Games"],
+  Admissions: ["How to Apply", "Fee Details", "Scholarships", "Common Questions", "Book a Visit"],
+  Contact:    ["Contact Us", "For Parents", "School Timing", "News & Events", "Work With Us"],
 };
 
 export default function Footer() {
@@ -34,7 +34,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-sm leading-relaxed mb-5" style={{ color: "var(--fg-3)" }}>
-              Empowering curious minds with knowledge, values, and the courage to dream bold since 1995.
+              A school that cares for every child. Good teachers, safe environment, and quality education for your family.
             </p>
             <div className="flex gap-2">
               {["f", "𝕏", "in", "▶"].map((icon, i) => (
@@ -71,7 +71,9 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center gap-5">
             <div className="flex-1">
               <p className="font-display font-bold mb-1" style={{ color: "var(--fg)" }}>Stay in the Loop</p>
-              <p className="text-sm" style={{ color: "var(--fg-3)" }}>News, events, and admissions updates to your inbox.</p>
+              <p className="text-sm leading-relaxed" style={{ color: "var(--fg-3)" }}>
+                News, updates and school events sent to your inbox.
+              </p>
             </div>
             <div className="flex gap-2 w-full md:w-auto">
               <input type="email" placeholder="your@email.com"

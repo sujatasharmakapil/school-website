@@ -6,10 +6,10 @@ import { useInView } from "react-intersection-observer";
 import { ChevronLeft, ChevronRight, Quote, Star, User } from "lucide-react";
 
 const testimonials = [
-  { name: "Shreya Agarwal",    role: "Parent · Grade 9",     stars: 5, accent: "#6366f1", text: "Bright Horizons didn't just educate my daughter — it gave her a voice. The faculty genuinely knows each student's potential and pushes them toward it." },
-  { name: "Rohan Kapoor",      role: "Alumni · Batch 2022",  stars: 5, accent: "#22c55e", text: "I cracked JEE Advanced with AIR 245. But the bigger win was learning how to think, not just what to think. That's what this school taught me." },
-  { name: "Meera & Raj Iyer",  role: "Parents · 3 Graduates",stars: 5, accent: "#f97316", text: "All three of our children studied here. Each had a completely different journey — tailored to who they are. The school's philosophy is simple: every child is unique." },
-  { name: "Ms. Nisha Verma",   role: "Former Faculty",       stars: 5, accent: "#e879f9", text: "I worked here for 8 years before becoming a principal elsewhere. The culture of continuous learning and genuine love for students is unlike anything in 20 years of education." },
+  { name: "Sunita Devi",       role: "Parent · Grade 4 Student",   stars: 5, accent: "#6366f1", text: "My son used to be scared of school. Since joining Bright Horizons, he wakes up excited every morning. The teachers are so kind and patient. Best decision we made." },
+  { name: "Ramesh Yadav",      role: "Parent · Two Children Here", stars: 5, accent: "#22c55e", text: "Both my children study here. The fees are affordable and the quality of teaching is very good. My daughter improved a lot in Maths and English this year." },
+  { name: "Geeta & Suresh Kumar", role: "Parents · Grade 8",      stars: 5, accent: "#f97316", text: "We were worried about our child's studies but after joining this school, her marks improved a lot. Teachers give personal attention to every student. Very happy." },
+  { name: "Meena Kumari",      role: "Parent · KG Student",        stars: 5, accent: "#e879f9", text: "I was worried to send my small child to school but this school feels like a family. The teachers take very good care. My daughter loves her teachers so much." },
 ];
 
 export default function Testimonials() {
@@ -30,7 +30,7 @@ export default function Testimonials() {
           <motion.div initial={{ opacity: 0, x: -24 }} animate={inView ? { opacity: 1, x: 0 } : {}}>
             <div className="flex items-center gap-3 mb-4"><div className="h-px w-8 bg-electric" /><span className="mono-tag">Voices</span></div>
             <h2 className="font-display font-bold text-[clamp(1.9rem,4vw,3rem)] leading-[1.1]" style={{ color: "var(--fg)" }}>
-              What Our <span className="text-electric-2">Community</span> Says
+              What Our <span className="text-electric-2">Parents Say</span>
             </h2>
           </motion.div>
           <motion.div initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ delay: 0.15 }}

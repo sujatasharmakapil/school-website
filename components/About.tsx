@@ -5,32 +5,31 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   Lightbulb, Heart, Globe2, ShieldCheck, Leaf,
-  ArrowUpRight, CheckCircle, Trophy, Users,
+  ArrowUpRight, CheckCircle, Users, Trophy,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 
 const pillars = [
-  { icon: Lightbulb,   title: "Innovation",    desc: "Creative thinking woven into every lesson.", color: "#84cc16" },
-  { icon: Heart,       title: "Empathy",        desc: "Emotional intelligence alongside academics.", color: "#f472b6" },
-  { icon: Globe2,      title: "Global View",    desc: "Preparing students for a borderless world.", color: "#38bdf8" },
-  { icon: ShieldCheck, title: "Integrity",      desc: "Character-building as core curriculum.",     color: "#fb923c" },
-  { icon: Leaf,        title: "Sustainability", desc: "Green campus and eco-conscious education.",  color: "#4ade80" },
+  { icon: Lightbulb,   title: "Good Learning",  desc: "We make every subject easy and interesting for every child.",  color: "#84cc16" },
+  { icon: Heart,       title: "Care & Safety",  desc: "Every student feels safe, welcome and cared for here.",        color: "#f472b6" },
+  { icon: Globe2,      title: "Future Ready",   desc: "We prepare children with skills they need for a good future.", color: "#38bdf8" },
+  { icon: ShieldCheck, title: "Good Values",    desc: "We teach honesty, respect and kindness every single day.",     color: "#fb923c" },
+  { icon: Leaf,        title: "Clean Campus",   desc: "Our school is clean, safe and a healthy place to learn.",      color: "#4ade80" },
 ];
 
 const highlights = [
-  "CBSE Board & Accredited", "ISO 9001:2015 Certified",
-  "Smart Digital Classrooms", "International Exchange",
-  "Olympic-size Sports Complex", "Research & Innovation Labs",
+  "CBSE Board Affiliated",       "Trained & Caring Teachers",
+  "Safe & Clean Campus",         "Affordable School Fees",
+  "Computer Lab & Library",      "Sports Ground & Activities",
 ];
 
 const timeline = [
-  { year: "1995", event: "Founded with a vision of holistic education" },
-  { year: "2001", event: "First batch of CBSE toppers" },
-  { year: "2008", event: "Launched Science & Innovation Wing" },
-  { year: "2015", event: "ISO 9001:2015 Certification achieved" },
-  { year: "2019", event: "International Exchange Program launched" },
-  { year: "2024", event: "Ranked #1 school in the region" },
+  { year: "Year 1",  event: "School started with a dream to give quality education to all children" },
+  { year: "Year 2",  event: "First batch of students passed with very good results" },
+  { year: "Year 3",  event: "Added computer lab and new sports ground" },
+  { year: "Year 4",  event: "More than 200 students joined our school family" },
+  { year: "Year 5",  event: "New classrooms and library opened for students" },
+  { year: "Today",   event: "Growing every year with happy students and proud parents" },
 ];
 
 export default function About() {
@@ -49,72 +48,114 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-5 lg:px-10 py-24" ref={refMain}>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* ── Left: Photo panel ── */}
+          {/* ── Left: Info dashboard panel (no image) ── */}
           <motion.div style={{ y: yImg }} className="relative">
-            {/* Main photo */}
-            <div className="relative rounded-3xl overflow-hidden w-full" style={{ aspectRatio: "3/4", border: "1px solid var(--border)" }}>
-              <Image
-                src="/images/9.png"
-                alt="Students at Bright Horizons Academy"
-                fill
-                className="object-cover object-center"
-              />
-              {/* Bottom vignette */}
-              <div className="absolute inset-0" style={{
-                background: "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.1) 45%, transparent 70%)"
-              }} />
-              {/* Top colour bar */}
+            <div
+              className="relative rounded-3xl overflow-hidden w-full"
+              style={{ aspectRatio: "3/4", background: "var(--bg-2)", border: "1px solid var(--border)" }}
+            >
+              {/* Top gradient bar */}
               <div className="absolute top-0 inset-x-0 h-[3px]"
-                style={{ background: "linear-gradient(90deg, #6366f1, #8b5cf6, #6366f1)" }} />
-              {/* Bottom info */}
-              <div className="absolute bottom-0 inset-x-0 p-5 flex items-end justify-between gap-3">
-                <div>
-                  <p className="text-white font-display font-bold text-lg leading-tight">30+ Years</p>
-                  <p className="text-white/50 text-[10px] font-mono tracking-widest mt-0.5 uppercase">of Excellence · Est. 1995</p>
+                style={{ background: "linear-gradient(90deg, #6366f1, #8b5cf6, #38bdf8)" }} />
+
+              {/* Big watermark number */}
+              <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden">
+                <span className="font-display font-bold text-[9rem] leading-none"
+                  style={{ color: "var(--border-2)", opacity: 0.35 }}>10+</span>
+              </div>
+
+              {/* Info cards stacked */}
+              <div className="absolute inset-0 p-6 flex flex-col gap-3 justify-center">
+
+                {/* Mission card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inMain ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.2 }}
+                  className="rounded-2xl p-5"
+                  style={{ background: "var(--bg)", border: "1px solid var(--border)" }}
+                >
+                  <p className="font-display font-bold text-xl mb-2" style={{ color: "var(--fg)" }}>
+                    Every Child Matters
+                  </p>
+                  <p className="text-sm leading-relaxed" style={{ color: "var(--fg-3)" }}>
+                    We give equal care to every student — slow learners, fast learners, and everyone in between.
+                  </p>
+                </motion.div>
+
+                {/* 2 stat boxes */}
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { value: "500+", label: "Happy Students", color: "#6366f1" },
+                    { value: "98%",  label: "Pass Rate",      color: "#22c55e" },
+                  ].map((s, i) => (
+                    <motion.div
+                      key={s.label}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={inMain ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ delay: 0.3 + i * 0.08 }}
+                      className="rounded-2xl p-4 text-center"
+                      style={{ background: "var(--bg)", border: "1px solid var(--border)" }}
+                    >
+                      <p className="font-display font-bold text-3xl mb-1" style={{ color: s.color }}>{s.value}</p>
+                      <p className="text-xs" style={{ color: "var(--fg-3)" }}>{s.label}</p>
+                    </motion.div>
+                  ))}
                 </div>
-                <div className="flex gap-2">
-                  {[["98%","Pass"],["50+","Awards"]].map(([v, l]) => (
-                    <div key={l} className="text-center px-3 py-2 rounded-xl"
-                      style={{ background: "rgba(255,255,255,0.12)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.14)" }}>
-                      <p className="text-white font-bold text-sm leading-none">{v}</p>
-                      <p className="text-white/50 text-[10px] mt-0.5 font-mono">{l}</p>
+
+                {/* Quote card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inMain ? { opacity: 1, y: 0 } : {}}
+                  transition={{ delay: 0.4 }}
+                  className="rounded-2xl p-5"
+                  style={{ background: "var(--bg)", border: "1px solid var(--border)" }}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: "rgba(99,102,241,0.15)" }}>
+                      <Heart className="w-4 h-4 text-electric-2" />
                     </div>
+                    <p className="text-sm leading-relaxed italic" style={{ color: "var(--fg-2)" }}>
+                      "We treat every child like our own. When a child succeeds, our whole community succeeds."
+                    </p>
+                  </div>
+                  <p className="text-xs mt-3 ml-11" style={{ color: "var(--fg-3)" }}>
+                    — Mrs. Priya Sharma, Principal
+                  </p>
+                </motion.div>
+
+                {/* 2 more stat boxes */}
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { value: "20+", label: "Good Teachers", color: "#f97316" },
+                    { value: "10+", label: "Years Running", color: "#38bdf8" },
+                  ].map((s, i) => (
+                    <motion.div
+                      key={s.label}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={inMain ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ delay: 0.5 + i * 0.08 }}
+                      className="rounded-2xl p-4 text-center"
+                      style={{ background: "var(--bg)", border: "1px solid var(--border)" }}
+                    >
+                      <p className="font-display font-bold text-3xl mb-1" style={{ color: s.color }}>{s.value}</p>
+                      <p className="text-xs" style={{ color: "var(--fg-3)" }}>{s.label}</p>
+                    </motion.div>
                   ))}
                 </div>
               </div>
+
+              {/* Bottom status bar */}
+              <div className="absolute bottom-0 inset-x-0 px-5 py-3 flex items-center justify-between"
+                style={{ borderTop: "1px solid var(--border)", background: "var(--bg-2)" }}>
+                <p className="font-mono text-xs" style={{ color: "var(--fg-3)" }}>CBSE Affiliated School</p>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-2 h-2 rounded-full bg-electric" style={{ animation: "ping 2s infinite" }} />
+                  <p className="font-mono text-xs" style={{ color: "var(--fg-3)" }}>Admissions Open</p>
+                </div>
+              </div>
             </div>
-
-            {/* Floating badge — top right */}
-            <motion.div
-              animate={{ y: [0, -7, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -right-5 top-8 hidden xl:flex items-center gap-3 px-4 py-3 rounded-2xl shadow-xl"
-              style={{ background: "var(--bg-2)", border: "1px solid var(--border)" }}
-            >
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(99,102,241,0.15)" }}>
-                <Trophy className="w-5 h-5 text-electric-2" />
-              </div>
-              <div>
-                <p className="font-bold text-sm leading-none" style={{ color: "var(--fg)" }}>#1 School</p>
-                <p className="text-xs mt-0.5" style={{ color: "var(--fg-3)" }}>District, 2024</p>
-              </div>
-            </motion.div>
-
-            {/* Floating badge — bottom left */}
-            <motion.div
-              animate={{ y: [0, 7, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -left-5 bottom-28 hidden xl:flex items-center gap-3 px-4 py-3 rounded-2xl shadow-xl"
-              style={{ background: "var(--bg-2)", border: "1px solid var(--border)" }}
-            >
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(34,197,94,0.15)" }}>
-                <Users className="w-5 h-5" style={{ color: "#22c55e" }} />
-              </div>
-              <div>
-                <p className="font-bold text-sm leading-none" style={{ color: "var(--fg)" }}>2,500+</p>
-                <p className="text-xs mt-0.5" style={{ color: "var(--fg-3)" }}>Students Enrolled</p>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* ── Right: Text ── */}
@@ -125,26 +166,26 @@ export default function About() {
           >
             <div className="flex items-center gap-3 mb-5">
               <div className="h-px w-8 bg-electric" />
-              <span className="mono-tag">Who We Are</span>
+              <span className="mono-tag">About Our School</span>
             </div>
 
             <h2 className="font-display font-bold text-[clamp(2rem,4vw,3rem)] leading-[1.1] mb-5" style={{ color: "var(--fg)" }}>
-              More Than a School.{" "}
+              A School That Truly{" "}
               <span className="text-electric-2 relative inline-block">
-                A Movement.
-                <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 200 5" fill="none" preserveAspectRatio="none">
-                  <path d="M0 4 Q100 0 200 4" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" />
+                Cares for Your Child.
+                <svg className="absolute -bottom-1 left-0 w-full" viewBox="0 0 240 5" fill="none" preserveAspectRatio="none">
+                  <path d="M0 4 Q120 0 240 4" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" />
                 </svg>
               </span>
             </h2>
 
             <p className="text-[1.05rem] leading-relaxed mb-4" style={{ color: "var(--fg-2)" }}>
-              At Bright Horizons Academy, education is not a destination — it's a lifelong
-              journey of wonder, growth, and bold thinking.
+              We started with one simple goal — to give every child in our community
+              a good, affordable education with proper care and attention.
             </p>
             <p className="leading-relaxed mb-8" style={{ color: "var(--fg-3)" }}>
-              From KG through Grade 12, every student gets a personalised curriculum, world-class
-              mentors, and an environment that rewards curiosity over conformity.
+              Our teachers know every student by name. We don't just teach from books —
+              we help children understand, grow, and feel confident about their future.
             </p>
 
             <div className="grid grid-cols-2 gap-y-3 gap-x-4 mb-9">
@@ -167,7 +208,7 @@ export default function About() {
               onMouseEnter={(e) => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--electric)"; el.style.color = "var(--fg)"; }}
               onMouseLeave={(e) => { const el = e.currentTarget as HTMLElement; el.style.borderColor = "var(--border-2)"; el.style.color = "var(--fg-2)"; }}
             >
-              Learn More
+              Learn More About Us
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </motion.div>
@@ -178,9 +219,9 @@ export default function About() {
       <div style={{ background: "var(--bg-2)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)" }}>
         <div className="max-w-7xl mx-auto px-5 lg:px-10 py-16" ref={refPillars}>
           <div className="flex items-center justify-between mb-10">
-            <h3 className="font-display font-bold text-xl" style={{ color: "var(--fg)" }}>Our Five Pillars</h3>
+            <h3 className="font-display font-bold text-xl" style={{ color: "var(--fg)" }}>What We Believe In</h3>
             <div className="h-px flex-1 mx-6" style={{ background: "var(--border)" }} />
-            <span className="mono-tag">05</span>
+            <span className="mono-tag">5 Values</span>
           </div>
           <div className="grid md:grid-cols-5 gap-3">
             {pillars.map((p, i) => (
@@ -209,7 +250,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-5 lg:px-10 py-20" ref={refTimeline}>
         <div className="flex items-center gap-4 mb-12">
           <div className="h-px w-8 bg-electric" />
-          <span className="mono-tag">Our Journey</span>
+          <span className="mono-tag">How We Grew</span>
         </div>
         <div className="relative">
           <motion.div
@@ -228,9 +269,10 @@ export default function About() {
                 className="flex items-center gap-8"
               >
                 <div className="w-[96px] flex-shrink-0 text-right">
-                  <span className="font-mono font-bold text-base text-electric-2">{t.year}</span>
+                  <span className="font-mono font-bold text-sm text-electric-2">{t.year}</span>
                 </div>
-                <div className="w-2.5 h-2.5 rounded-full flex-shrink-0 bg-electric" style={{ border: "2px solid var(--bg)" }} />
+                <div className="w-2.5 h-2.5 rounded-full flex-shrink-0 bg-electric"
+                  style={{ border: "2px solid var(--bg)" }} />
                 <p className="text-sm leading-relaxed" style={{ color: "var(--fg-2)" }}>{t.event}</p>
               </motion.div>
             ))}

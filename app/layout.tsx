@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bright Horizons Academy — Shape the Future",
-  description: "A world-class CBSE school where 2,500+ students discover their potential through bold academics, arts, sport and technology.",
-  keywords: "school, education, CBSE, academy, best school, bright horizons",
+  title: "Bright Horizons Academy — Quality Education for Every Child",
+  description: "A school where every child is known, valued and helped to grow. Quality education, caring teachers, and a safe learning environment.",
+  keywords: "school, education, CBSE, academy, admission, quality school",
   openGraph: {
     title: "Bright Horizons Academy",
-    description: "Where Excellence Begins.",
+    description: "Quality Education for Every Child.",
     type: "website",
   },
 };

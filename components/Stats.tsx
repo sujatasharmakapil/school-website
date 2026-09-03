@@ -7,14 +7,14 @@ import { Users, Trophy, BookOpen, Globe2, Star, GraduationCap, Briefcase, Zap } 
 import Link from "next/link";
 
 const stats = [
-  { icon: Users,        value: 2500, suffix: "+", label: "Enrolled Students",    desc: "Across all grades"           },
-  { icon: Trophy,       value: 50,   suffix: "+", label: "National Awards",       desc: "In the last decade"          },
-  { icon: GraduationCap,value: 98,   suffix: "%", label: "Board Pass Rate",       desc: "Consistently above average"  },
-  { icon: Globe2,       value: 25,   suffix: "+", label: "Countries",             desc: "A truly global community"    },
-  { icon: Star,         value: 120,  suffix: "+", label: "Expert Faculty",        desc: "Certified & experienced"     },
-  { icon: BookOpen,     value: 40,   suffix: "+", label: "Clubs & Activities",    desc: "Beyond the classroom"        },
-  { icon: Briefcase,    value: 95,   suffix: "%", label: "Alumni Employed",       desc: "Within 6 months"             },
-  { icon: Zap,          value: 30,   suffix: "+", label: "Years of Service",      desc: "Shaping futures since 1995"  },
+  { icon: Users,        value: 500,  suffix: "+", label: "Students Enrolled",   desc: "Children studying with us"        },
+  { icon: Trophy,       value: 98,   suffix: "%", label: "Students Pass",        desc: "In annual board exams"            },
+  { icon: GraduationCap,value: 20,   suffix: "+", label: "Trained Teachers",    desc: "Caring and qualified staff"       },
+  { icon: Globe2,       value: 10,   suffix: "+", label: "Years Running",        desc: "Serving our community"            },
+  { icon: Star,         value: 15,   suffix: "+", label: "Staff Members",        desc: "Dedicated to your child"          },
+  { icon: BookOpen,     value: 8,    suffix: "+", label: "Activities & Clubs",   desc: "Beyond regular classes"           },
+  { icon: Briefcase,    value: 90,   suffix: "%", label: "Parents Satisfied",    desc: "Happy families every year"        },
+  { icon: Zap,          value: 5,    suffix: "+", label: "Classrooms",           desc: "Clean and well equipped"          },
 ];
 
 export default function Stats() {
@@ -33,12 +33,12 @@ export default function Stats() {
         <div className="grid lg:grid-cols-[1fr_2fr] gap-12 items-end mb-14">
           <motion.div initial={{ opacity: 0, x: -24 }} animate={inView ? { opacity: 1, x: 0 } : {}}>
             <h2 className="font-display font-bold text-[clamp(1.9rem,4vw,3rem)] leading-[1.1]" style={{ color: "var(--fg)" }}>
-              Three Decades of <span className="text-electric-2">Impact</span>
+              Our School <span className="text-electric-2">in Numbers</span>
             </h2>
           </motion.div>
           <motion.p initial={{ opacity: 0, x: 24 }} animate={inView ? { opacity: 1, x: 0 } : {}} transition={{ delay: 0.1 }}
             className="text-lg leading-relaxed lg:max-w-xl" style={{ color: "var(--fg-2)" }}>
-            Numbers tell a story. Ours speaks of thousands of lives transformed, families trusted, and futures launched from these halls.
+            Numbers that show how many families trust us and how well our students do every year.
           </motion.p>
         </div>
 
@@ -77,8 +77,8 @@ export default function Stats() {
           className="mt-7 flex flex-col sm:flex-row items-center justify-between gap-5 px-7 py-5 rounded-2xl"
           style={{ border: "1px solid var(--border)", background: "var(--bg-2)" }}>
           <div>
-            <p className="font-display font-bold text-xl" style={{ color: "var(--fg)" }}>Become Part of the Legacy</p>
-            <p className="text-sm" style={{ color: "var(--fg-3)" }}>Applications now open for 2025–26 academic year.</p>
+            <p className="font-display font-bold text-xl" style={{ color: "var(--fg)" }}>Thinking of Admitting Your Child?</p>
+            <p className="text-sm" style={{ color: "var(--fg-3)" }}>Admissions are open. Come visit our school and see for yourself.</p>
           </div>
           <Link href="/admissions" className="flex-shrink-0 inline-flex items-center gap-2 h-10 px-6 bg-electric hover:bg-electric-2 text-white font-semibold rounded-full text-sm transition-colors">
             Apply Now <Zap className="w-3.5 h-3.5 fill-white" />

@@ -6,10 +6,10 @@ import { useInView } from "react-intersection-observer";
 import { MapPin, Phone, Mail, Clock, ArrowUpRight, CheckCircle, Send } from "lucide-react";
 
 const info = [
-  { icon: MapPin, label: "Address",      lines: ["42, Horizon Park Road", "New Delhi – 110025"],                 accent: "#6366f1" },
-  { icon: Phone,  label: "Phone",        lines: ["+91 98765 43210", "+91 11 2345 6789"],                         accent: "#22c55e" },
-  { icon: Mail,   label: "Email",        lines: ["admissions@brightacademy.edu", "info@brightacademy.edu"],       accent: "#f97316" },
-  { icon: Clock,  label: "School Hours", lines: ["Mon–Fri  7:30 AM – 3:30 PM", "Saturday  8:00 AM – 12:00 PM"], accent: "#38bdf8" },
+  { icon: MapPin, label: "Our Address",   lines: ["Near Main Bus Stand", "Your Town / District"],               accent: "#6366f1" },
+  { icon: Phone,  label: "Call Us",       lines: ["+91 98765 43210", "+91 99887 76655"],                        accent: "#22c55e" },
+  { icon: Mail,   label: "Email Us",      lines: ["admissions@brightacademy.edu", "info@brightacademy.edu"],    accent: "#f97316" },
+  { icon: Clock,  label: "School Timing", lines: ["Monday – Saturday: 7:30 AM – 2:30 PM", "Sunday: Closed"],   accent: "#38bdf8" },
 ];
 
 const grades = ["KG", ...Array.from({ length: 12 }, (_, i) => `Grade ${i + 1}`)];
@@ -44,9 +44,13 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-5 lg:px-10 py-20" ref={ref}>
         <motion.div initial={{ opacity: 0, y: 24 }} animate={inView ? { opacity: 1, y: 0 } : {}} className="mb-14 max-w-xl">
           <h2 className="font-display font-bold text-[clamp(1.9rem,4.5vw,3.2rem)] leading-[1.1] mb-4" style={{ color: "var(--fg)" }}>
-            Your Child's Journey <span className="text-electric-2">Starts with Hello.</span>
+            Want to Admit Your Child?{" "}
+            <span className="text-electric-2">Talk to Us.</span>
           </h2>
-          <p className="leading-relaxed" style={{ color: "var(--fg-2)" }}>Reach out for admissions, campus tours, or any questions. We respond within 24 hours.</p>
+          <p className="leading-relaxed" style={{ color: "var(--fg-2)" }}>
+            Come visit our school or send us a message. We will reply within 24 hours.
+            Admissions are open — seats are filling fast.
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-[1.2fr_1fr] gap-10">
@@ -69,7 +73,7 @@ export default function Contact() {
               </motion.div>
             ) : (
               <>
-                <h3 className="font-display font-bold text-xl mb-7" style={{ color: "var(--fg)" }}>Admission Inquiry</h3>
+                <h3 className="font-display font-bold text-xl mb-7" style={{ color: "var(--fg)" }}>Admission Enquiry Form</h3>
                 <form onSubmit={submit} className="space-y-4">
                   <div className="grid sm:grid-cols-2 gap-4">
                     {[["name","Full Name","text",true],["email","Email","email",true]].map(([key,ph,type,req]) => (
@@ -145,8 +149,8 @@ export default function Contact() {
               className="flex-1 min-h-[120px] p-6 rounded-2xl flex flex-col justify-between"
               style={{ background: "var(--bg)", border: "1px solid var(--border)" }}>
               <div>
-                <p className="font-display font-bold text-lg mb-1" style={{ color: "var(--fg)" }}>Visit Our Campus</p>
-                <p className="text-sm" style={{ color: "var(--fg-3)" }}>New Delhi, India</p>
+                <p className="font-display font-bold text-lg mb-1" style={{ color: "var(--fg)" }}>Come Visit Our School</p>
+                <p className="text-sm" style={{ color: "var(--fg-3)" }}>We welcome all parents — come see our school in person.</p>
               </div>
               <button className="group self-start inline-flex items-center gap-1.5 h-9 px-4 text-sm font-medium rounded-full border mt-4 transition-all"
                 style={{ borderColor: "var(--border-2)", color: "var(--fg-3)" }}>
