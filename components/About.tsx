@@ -48,24 +48,18 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-5 lg:px-10 py-24" ref={refMain}>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* ── Left: Info dashboard panel (no image) ── */}
+          {/* ── Left: Info dashboard panel ── */}
           <motion.div style={{ y: yImg }} className="relative">
             <div
               className="relative rounded-3xl overflow-hidden w-full"
-              style={{ aspectRatio: "3/4", background: "var(--bg-2)", border: "1px solid var(--border)" }}
+              style={{ background: "var(--bg-2)", border: "1px solid var(--border)" }}
             >
               {/* Top gradient bar */}
               <div className="absolute top-0 inset-x-0 h-[3px]"
                 style={{ background: "linear-gradient(90deg, #6366f1, #8b5cf6, #38bdf8)" }} />
 
-              {/* Big watermark number */}
-              <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden">
-                <span className="font-display font-bold text-[9rem] leading-none"
-                  style={{ color: "var(--border-2)", opacity: 0.35 }}>10+</span>
-              </div>
-
-              {/* Info cards stacked */}
-              <div className="absolute inset-0 p-6 flex flex-col gap-3 justify-center">
+              {/* Info cards stacked — natural flow, no absolute positioning */}
+              <div className="p-5 pt-7 flex flex-col gap-3">
 
                 {/* Mission card */}
                 <motion.div
@@ -144,16 +138,17 @@ export default function About() {
                     </motion.div>
                   ))}
                 </div>
-              </div>
 
-              {/* Bottom status bar */}
-              <div className="absolute bottom-0 inset-x-0 px-5 py-3 flex items-center justify-between"
-                style={{ borderTop: "1px solid var(--border)", background: "var(--bg-2)" }}>
-                <p className="font-mono text-xs" style={{ color: "var(--fg-3)" }}>CBSE Affiliated School</p>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2 h-2 rounded-full bg-electric" style={{ animation: "ping 2s infinite" }} />
-                  <p className="font-mono text-xs" style={{ color: "var(--fg-3)" }}>Admissions Open</p>
+                {/* Bottom status bar */}
+                <div className="rounded-2xl px-5 py-3 flex items-center justify-between"
+                  style={{ background: "var(--bg)", border: "1px solid var(--border)" }}>
+                  <p className="font-mono text-xs" style={{ color: "var(--fg-3)" }}>CBSE Affiliated</p>
+                  <div className="flex items-center gap-1.5">
+                    <div className="w-2 h-2 rounded-full bg-electric animate-pulse" />
+                    <p className="font-mono text-xs" style={{ color: "var(--fg-3)" }}>Admissions Open</p>
+                  </div>
                 </div>
+
               </div>
             </div>
           </motion.div>
